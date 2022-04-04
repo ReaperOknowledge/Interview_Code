@@ -1,0 +1,1 @@
+There is a whole other page to describe how the system works, but I will explain it in a simpiler way. Basically I used python code to create a complex mathmatical equation that produces the output that I want. This was done by using data with known outputs and forming a function to match the known outputs.

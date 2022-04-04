@@ -1,0 +1,1 @@
+This website is dedicated to looking at a bean and deciding if that bean is a Barbuna, Bomba, Cali, Dermason, Horoz, Seker, or a Sira. There is a trained model that was created for just this purpose along with an explanation on how it works!
