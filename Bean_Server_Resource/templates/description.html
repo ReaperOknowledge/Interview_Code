@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset="utf-8">
+		<title>Explainability</title>
+		<meta description="The model type, the way it was built and explainability">
+		<link rel="stylesheet" type="text/css" href="/static/css/describe.css">
+	</head>
+	<body>
+		<header>
+			<h1>Explainability of the Model</h1>
+			<p>The current model is in beta 0.19. While randomised forest was used toupdate the model, a simple tree was used in the end. This was due to having an average better accuracy for each bean compaired to the random forest.</p>
+		</header>
+		<main>
+			<div id="build">
+				<h2>The Construction of the Model</h2>
+				<p>The dataset used to fit the model was <a href="https://archive.ics.uci.edu/ml/datasets/Dry+Bean+Dataset"><em>The Dry Bean Data Set</em></a> created by Murat Koklu and Ali Ozkan. There was a lot of data in this, but the data was formed to reduce possible weights by forcing all the features to be pushed to a number inbetween 0 and 1. There was also more data on certain beans than on others, so the data was changed so that each classification had a certain number of training data that equaled the others.</p>
+				<img id="tree" src="/static/pictures/beantree.png" alt="Tree">
+				<p>From here, the tree model was formed to not allow overfitting be setting the min/max node split and leaf. This insured that the model would not fit the training data perfectly as it should look at common features of each bean. From each bean, 11 features were used:Area, Perimeter, MinorAxisLength, AspectRation, Eccentricity, ConvexArea, EquivDiameter, Extent, Solidity, roundness, compactness, shapefactor1, 2, 3, 4.</p>
+				<p>
+				<h2>Accuracy</h2>
+				<img src="/static/pictures/confusion_matrix.png" alt="Confusion matrix">
+				<ul>
+					<li>Seker 95.4%</li>
+					<li>Horoz %95.8</li>
+					<li>Bomba %100 </li>
+					<li>Sira %84.3</li>
+					<li>barbunya %91.4</li>
+					<li>Dermason %93.9</li>
+					<li>Cali %93.0</li>
+				</ul>
+				<p>These acuracy percentages were found using the conusion matrix above. based on testing data, these values were calculated. It is very unlikley that a bean would be 100% accurate in on a bigger scale, but with the data provided, the model was able to predict an acurate reading for bomba.</p>
+				<p>The worst reading was for Sira as it's accuracy was substantally lower than the others. The data showed that Sira was very similar to multiple other beans which would explain the bad score. Overall, the ratings are high and the model seems to predict accuratly.</p>
+
+				<h2>The Features</h2>
+				<img src="/static/pictures/feature_use.png" alt="Features">
+				<p>By far the most used feature is perimeter. While conexArea, extent, and eccentricity were barley used, they had minor changes that bettered the accuracy slightly for the beans. More features usually mean a better accuracy, but that was not fully the case as MajorAxisLength was removed. It can also be shown that the graph is exponential. With each feature added, it seemed that thenext would mean exponentially less to the prediction.</p>
+				
+			</div>
+		</main>
+	</body>
+</html>

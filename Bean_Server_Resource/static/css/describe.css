@@ -1,0 +1,14 @@
+html 
+{ 
+	background-color: lightblue;
+	text-align:center;
+	margin-left:25%;
+	width:600px;
+	padding-top:10px;
+	padding-bottom:30px;
+	padding-left:10px;
+	padding-right:25px;
+
+}
+
+#tree	{ width:200%;}

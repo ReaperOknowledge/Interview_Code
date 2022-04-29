@@ -1,0 +1,126 @@
+openapi: 3.0.0
+info:
+  version: '0.19'
+  title: Hello World
+  description: Introducing open api 3.0.0
+
+paths:
+  /upload:
+    get:
+      tags:
+        - upload
+      operationId: src.upload.upload
+      description: Returns page to upload
+      responses:
+        '200':
+          description: 'Success'
+  /sum/<arg1>/<arg2>:
+    get:
+      tags:
+        - sum
+      operationId: src.sum.sum
+      description: Returns the sum of two numbers
+      responses:
+        '200':
+          description: 'Success'
+  /description:
+    get:
+      tags:
+        - description
+      operationId: src.description.desc
+      description: Returns what the model does
+      responses:
+        '200':
+          description: 'success'
+  /question:
+    get:
+      tags:
+        - question
+      operationId: src.question.question
+      description: Ask questions about service here via the webpage
+      responses:
+        '200':
+          description: 'success'
+  /predict/{id}:
+    get:
+      tags:
+        - prediction
+      operationId: src.model.model
+      description: Returns the prediction for a given set of inputs
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: array
+            items:
+              type: number
+            minItems: 1
+          style: simple
+          explode: true
+        - in: query
+          name: metadata
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: 'Success'
+  /file/<filename>:
+    post:
+      tags:
+        - Upload
+      summary: Upload a file
+      operationId: src.file.upload
+      parameters:
+        - name: filename
+          in: query
+          description: filename to be uploaded
+          required: true
+          schema:
+            type: string
+      responses:
+        '405':
+          description: Invalid input
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+    get:
+      tags:
+        - Download
+      summary: Download a file
+      operationId: src.file.download
+      responses:
+        '405':
+          description: Invalid input
+  /list:
+    get:
+      tags:
+        - List
+      operationId: src.file.list_files
+      description: Returns the list of files in the server
+      responses:
+        '200':
+          description: 'Success'
+  /predict_file/<file_name>:
+    get:
+      tags:
+        - PRED
+      operationId: src.prediction.my_prediction_file
+      description: Returns the prediction for a given set of inputs
+      parameters:
+        - name: file_name
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success'
+servers:
+  - url: 'http://localhost:8000/e222'
