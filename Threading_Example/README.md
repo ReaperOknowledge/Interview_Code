@@ -9,8 +9,7 @@ giving me the same times.
 is a nice theory of vector algebra where calculating many parts of one thing at the same time is
 faster than calculation the big calculation linearly.
 
-4.) My guess is that autograder is programmed to snoop for just the answer that would be expected 
-and looks for it in the output.
+
 
 
   
